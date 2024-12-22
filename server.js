@@ -1,7 +1,9 @@
 require('dotenv').config();
 const express = require('express');
-const authRoutes = require('./routes/authRoutes');
+const { authRoutes } = require('./routes/');
 const errorHandler = require('./middlewares/errorHandler');
+const { PORT } = require('./config');
+const connectDB = require('./utils/db');
 
 const app = express();
 
@@ -10,13 +12,11 @@ app.use(express.json());
 //routes
 app.use('/auth', authRoutes);
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
-const connectDB = require('./utils/db');
 connectDB();
 
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

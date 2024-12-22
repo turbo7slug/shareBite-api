@@ -4,8 +4,8 @@
   "description": "share bite : sharing the excess cost of food delivery ",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start:dev": "NODE_ENV=dev nodemon src/index.js",
+    "start:prod": "NODE_ENV=prod nodemon src/index.js"
   },
   "author": "yusuf",
   "license": "ISC",
